@@ -14,7 +14,7 @@ export default function ManageCoursePage() {
                     <Link to="#" className="w-fit rounded-full border border-[#060A23] p-[14px_20px] font-semibold text-nowrap">
                         Import File
                     </Link>
-                    <Link to="create-new-course.html" className="w-fit rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#662FFF] text-nowrap">
+                    <Link to="/manager/courses/create" className="w-fit rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#662FFF] text-nowrap">
                         New Course
                     </Link>
                 </div>
