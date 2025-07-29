@@ -19,3 +19,4 @@ Using
 - TanStack Query V5 [https://tanstack.com/query/v5/docs/framework/react/installation]
 - React Hook Form [https://react-hook-form.com/get-started]
 - Axios [https://axios-http.com/docs/intro]
+- CKEditor [https://ckeditor.com/ckeditor-5/react/]
