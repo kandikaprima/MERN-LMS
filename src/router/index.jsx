@@ -10,7 +10,7 @@ import ManageCourseDetailPage from "../pages/manager/course-detail";
 import ManageContentCreatePage from "../pages/manager/course-content-create";
 import ManageCoursePreviewPage from "../pages/manager/course-preview";
 import ManageStudentsPage from "../pages/manager/students";
-import StudentPage from "../pages/student";
+import StudentPage from "../pages/student/student-overview";
 
 const router = createBrowserRouter([
   {
@@ -64,12 +64,16 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/student",
+    path: '/student',
     element: <LayoutDashboard isAdmin={false}/>,
     children: [
       {
         index: true,
         element: <StudentPage />
+      },
+      {
+        path: '/student/detail-course/:id',
+        element: <ManageCoursePreviewPage />
       },
     ]
   },
