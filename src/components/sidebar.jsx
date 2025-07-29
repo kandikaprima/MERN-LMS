@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export default function Sidebar() {
+export default function Sidebar({
+  isAdmin = true
+}) {
   return (
     <aside className="sidebar-container fixed h-[calc(100vh-20px)] w-full max-w-[280px] my-[10px] ml-[10px] bg-[#060A23] overflow-hidden flex flex-1 rounded-[20px]">
       <div className="scroll-container flex w-full overflow-y-scroll hide-scrollbar">
@@ -25,7 +28,9 @@ export default function Sidebar() {
                 </div>
               </Link>
             </li>
-            <li>
+            {isAdmin &&(
+              <>
+              <li>
               <Link to="/manager/courses">
                 <div className="flex items-center gap-3 w-full rounded-full border p-[14px_20px] transition-all duration-300 hover:bg-[#662FFF] hover:border-[#8661EE] hover:shadow-[-10px_-6px_10px_0_#7F33FF_inset] bg-[#070B24] border-[#24283E] shadow-[-10px_-6px_10px_0_#181A35_inset]">
                   <img
@@ -61,6 +66,8 @@ export default function Sidebar() {
                 </div>
               </Link>
             </li>
+              </>
+            )}
           </ul>
           <ul className="flex flex-col gap-4">
             <p className="font-semibold text-xs leading-[18px] text-white">
@@ -112,4 +119,8 @@ export default function Sidebar() {
       />
     </aside>
   );
+}
+
+Sidebar.propTypes = {
+  isAdmin: PropTypes.bool
 }
