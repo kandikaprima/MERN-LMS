@@ -1,8 +1,6 @@
 import React from "react";
 import Sidebar from "./sidebar";
 import Header from "./header";
-import Courses from "../pages/manager/courses";
-import Students from "../pages/manager/home";
 import { Outlet } from "react-router-dom";
 
 export default function LayoutDashboard() {

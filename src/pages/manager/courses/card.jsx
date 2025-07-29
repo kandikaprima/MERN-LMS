@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Proptypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 export default function CardCourse({
     id = 1,
@@ -37,9 +37,9 @@ export default function CardCourse({
 }
 
 CardCourse.proptypes ={
-    id : Proptypes.number,
-    imageUrl : Proptypes.string,
-    totalStudens : Proptypes.string,
-    category : Proptypes.string,
-    name : Proptypes.string 
+    id : PropTypes.number,
+    imageUrl : PropTypes.string,
+    totalStudens : PropTypes.string,
+    category : PropTypes.string,
+    name : PropTypes.string 
 }
