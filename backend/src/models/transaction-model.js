@@ -5,9 +5,9 @@ const transactionModel = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    user: {
+    price: {
         type: Number,
-        require: true
+        required: true
     },
     status: {
         type: String,
