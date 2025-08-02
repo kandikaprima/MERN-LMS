@@ -4,7 +4,7 @@ import Pricing from "./pricing";
 
 export default function SignUpPage() {
     return (
-        // <Form />
-        <Pricing />
+        <Form />
+        // <Pricing />
     )
 }
