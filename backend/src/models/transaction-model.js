@@ -11,7 +11,7 @@ const transactionModel = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'succes', 'failed'],
+        enum: ['pending', 'success', 'failed'],
         default: 'pending'
     }
 }, {
