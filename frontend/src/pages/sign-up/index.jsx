@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../../components/navbar";
+import Navbar from "../../components/navbar.jsx";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signUpSchema } from "../../utils/zod-schema.js";
+import { signUpSchema } from "../../utils/zodSchema.js";
 import { useState } from "react";
 import Pricing from "./pricing";
 

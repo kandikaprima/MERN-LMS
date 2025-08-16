@@ -2,7 +2,7 @@ import React from "react"
 import Navbar from "../../components/navbar"
 import { Link } from "react-router-dom"
 import { useMutation } from "@tanstack/react-query"
-import { postSignUp } from "../../services/auth-service"
+import { postSignUp } from "../../services/authService"
 import { PropTypes } from "prop-types"
 
 export default function Pricing({data}) {
