@@ -1,6 +1,6 @@
 import React from 'react'
-import ContentText from './content-text'
-import ContentVideo from './content-video'
+import ContentText from './ContentText'
+import ContentVideo from './ContentVideo'
 
 export default function ManageCoursePreviewPage(){
     return (

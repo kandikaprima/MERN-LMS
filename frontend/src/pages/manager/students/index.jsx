@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import StudentItem from './student-item'
+import StudentItem from './StudentItem'
 
 export default function ManageStudentsPage() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ContentItem from './content-item'
+import ContentItem from './ContentItem'
 
 export default function TableContent(){
     return (

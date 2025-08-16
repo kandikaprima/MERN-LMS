@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import TableContent from './table-content'
+import TableContent from './TableContent'
 
 export default function ManageCourseDetailPage() {
     return (
