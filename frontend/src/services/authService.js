@@ -1,3 +1,3 @@
-import apiInstance from "../utils/axios.js";
+import apiInstance from "../utils/apiClient.js";
 
 export const postSignUp = async (data) => apiInstance.post('/sign-up', data).then((res) => res.data)
