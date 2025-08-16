@@ -1,5 +1,5 @@
 import React from 'react'
-import CardCourse from './card-course'
+import CardCourse from './CardCourse'
 
 export default function StudentPage() {
     return (
