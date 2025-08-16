@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import ManagerHomepage from "../pages/manager/home";
-import SignInPage from "../pages/SignIn";
-import SignUpPage from "../pages/SignUp";
-import SuccesCheckoutPage from "../pages/SuccesCheckout";
+import SignInPage from "../pages/sign-in";
+import SignUpPage from "../pages/sign-up";
+import SuccesCheckoutPage from "../pages/success-checkout";
 import LayoutDashboard from "../components/layout";
 import ManageCoursePage from "../pages/manager/courses";
 import ManageCreateCoursePage from "../pages/manager/create-courses";
