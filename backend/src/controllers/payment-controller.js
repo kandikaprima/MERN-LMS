@@ -12,6 +12,7 @@ export const handlePayment = async (req, res) => {
                     status: 'success'
                 })
                 break;
+                
             case "deny":
             case "cancel":
             case "expire":
@@ -19,6 +20,7 @@ export const handlePayment = async (req, res) => {
                 await transactionModel.findByIdAndUpdate(orderId, {
                     status: 'failed'
                 })
+                break;
         
             default:
                 break;
