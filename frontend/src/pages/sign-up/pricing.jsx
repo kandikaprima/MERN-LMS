@@ -15,9 +15,7 @@ export default function Pricing({data}) {
             if (!data) {
                 return
             }
-
             const response = await mutateAsync()
-
             window.location.replace(response.data.midtrans_payment_url)
         } catch (error) {
             console.log(error);
