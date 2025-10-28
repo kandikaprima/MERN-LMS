@@ -13,6 +13,6 @@ const upload = multer({
 
 courseRoutes.get('/courses', verifyToken, getCourses)
 courseRoutes.post('/courses', verifyToken, upload.single('thumbnail'), postCourse)
-courseRoutes.put('/courses', verifyToken, upload.single('thumbnail'), updateCourse)
+courseRoutes.put('/courses/:id', verifyToken, upload.single('thumbnail'), updateCourse)
 
 export default courseRoutes
