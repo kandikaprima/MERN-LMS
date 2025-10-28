@@ -2,6 +2,8 @@ import courseModel from '../models/course-model.js'
 import { mutateCourseSchema } from '../utils/schema.js'
 import categoryModel from '../models/category-model.js'
 import userModel from '../models/user-model.js'
+import path from 'path'
+import fs from 'fs'
 
 export const getCourses = async (req, res) => {
     try {
@@ -52,8 +54,8 @@ export const postCourse = async (req, res) => {
         if (!parse.success) {
             const errorMessages = parse.error.issues.map((err) => err.message)
 
-            if (req?.file?.path && fs.existSync(req?.file?.path)) {
-                fs.unlinlSync(req?.file?.path)
+            if (req?.file?.path && fs.existsSync(req?.file?.path)) {
+                fs.unlinkSync(req?.file?.path)
             }
             return res.status(500).json({
                 mesage: 'Error Validation',
@@ -114,8 +116,8 @@ export const updateCourse = async (req, res) => {
         if (!parse.success) {
             const errorMessages = parse.error.issues.map((err) => err.message)
 
-            if (req?.file?.path && fs.existSync(req?.file?.path)) {
-                fs.unlinlSync(req?.file?.path)
+            if (req?.file?.path && fs.existsSync(req?.file?.path)) {
+                fs.unlinkSync(req?.file?.path)
             }
             return res.status(500).json({
                 mesage: 'Error Validation',
@@ -148,6 +150,32 @@ export const updateCourse = async (req, res) => {
 
         return res.json({
             message: 'Update Course Success'
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: 'Internal Server Error'
+        })
+    }
+}
+
+export const deleteCourse = async (req, res) => {
+    try {
+        const {id} = req.params
+
+        const course = await courseModel.findById(id)
+
+        const dirname = path.resolve()
+
+        const filePath = path.join(dirname, "public/uploads/courses", course.thumbnail)
+
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath)
+        }
+        await courseModel.findByIdAndDelete(id)
+
+        return res.json({
+            message: 'Delete Course Success'
         })
     } catch (error) {
         console.log(error);
