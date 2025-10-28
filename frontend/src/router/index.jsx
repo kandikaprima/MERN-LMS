@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import ManagerHomepage from "../pages/manager/home";
 import SignInPage from "../pages/sign-in";
 import SignUpPage from "../pages/sign-up";
@@ -11,6 +11,8 @@ import ManageContentCreatePage from "../pages/manager/course-content-create";
 import ManageCoursePreviewPage from "../pages/manager/course-preview";
 import ManageStudentsPage from "../pages/manager/students";
 import StudentPage from "../pages/student/student-overview";
+import secureLocalStorage from "react-secure-storage";
+import { MANAGER_SESSION, STORAGE_KEY } from "../utils/const";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/manager",
+    id: MANAGER_SESSION,
+    loader: async () => {
+      const session = secureLocalStorage.getItem(STORAGE_KEY)
+      
+      if (!session || session.role !== "manager") {
+        throw redirect('/manager/sign-in')
+      }
+
+      return session
+    },
     element: <LayoutDashboard />,
     children: [
       {
