@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import TableContent from './TableContent'
 
 export default function ManageCourseDetailPage() {
+    const {id} = useParams()
+
     return (
         <>
         <div id="Breadcrumb" className="flex items-center gap-5 *:after:content-['/'] *:after:ml-5">
@@ -18,7 +20,7 @@ export default function ManageCourseDetailPage() {
                 </h1>
             </div>
             <div className="flex items-center gap-3">
-                <Link to="#" className="w-fit rounded-full border border-[#060A23] p-[14px_20px] font-semibold text-nowrap">
+                <Link to={`/manager/courses/edit/${id}`} className="w-fit rounded-full border border-[#060A23] p-[14px_20px] font-semibold text-nowrap">
                     Edit Course
                 </Link>
                 <Link to="/manager/courses/1/preview" className="w-fit rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#662FFF] text-nowrap">
