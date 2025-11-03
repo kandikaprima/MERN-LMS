@@ -62,7 +62,7 @@ export default function CardCourse({
     )
 }
 
-CardCourse.proptypes ={
+CardCourse.propTypes ={
     id : PropTypes.number,
     imageUrl : PropTypes.string,
     totalStudens : PropTypes.string,
