@@ -37,7 +37,6 @@ export default function SignInPage() {
             console.log(error);
             
         }
-        console.log(data);
     }
 
     return (
