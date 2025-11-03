@@ -3,8 +3,10 @@ import { apiInstanceAuth } from "../utils/apiClient";
 export const getCourses = async () =>
   apiInstanceAuth.get("/courses").then((res) => res.data);
 
-export const getCourseDetail = async (id) =>
-  apiInstanceAuth.get(`/courses/${id}`).then((res) => res.data);
+export const getCourseDetail = async (id, isPreview = false) =>
+  apiInstanceAuth
+    .get(`/courses/${id}${isPreview ? "?preview=true" : ""}`)
+    .then((res) => res.data);
 
 export const createCourse = async (data) =>
   apiInstanceAuth
