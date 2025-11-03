@@ -15,6 +15,7 @@ import secureLocalStorage from "react-secure-storage";
 import { MANAGER_SESSION, STORAGE_KEY } from "../utils/const";
 import { getCourseDetail, getCourses } from "../services/courseService";
 import { getCategories } from "../services/categoryService";
+import { getDetailContent } from "../services/contentService";
 
 const router = createBrowserRouter([
   {
@@ -81,10 +82,24 @@ const router = createBrowserRouter([
       },
       {
         path: '/manager/courses/:id',
+        loader: async ({params}) => {
+          const course = await getCourseDetail(params.id)
+
+          return course?.data
+        },
         element: <ManageCourseDetailPage />
       },
       {
         path: '/manager/courses/:id/create',
+        element: <ManageContentCreatePage />
+      },
+      {
+        path: '/manager/courses/:id/edit/:contentId',
+        loader: async ({params}) => {
+          const content = await getDetailContent(params.contentId)
+
+          return content?.data
+        },
         element: <ManageContentCreatePage />
       },
       {
