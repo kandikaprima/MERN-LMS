@@ -9,6 +9,7 @@ import paymentRoutes from './routes/payment-routes.js';
 import courseRoutes from './routes/course-routes.js';
 import categoryRoutes from './routes/category-routes.js';
 import contentRoutes from './routes/content-routes.js';
+import studentRoutes from './routes/student-routes.js';
 
 const app = express()
 dotenv.config()
@@ -31,6 +32,7 @@ app.use('/api', authRoutes)
 app.use('/api', courseRoutes)
 app.use('/api', categoryRoutes)
 app.use('/api', contentRoutes)
+app.use('/api', studentRoutes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
