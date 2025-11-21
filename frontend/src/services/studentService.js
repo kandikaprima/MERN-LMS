@@ -23,3 +23,6 @@ export const updateStudent = async (data, id) =>
       },
     })
     .then((res) => res.data);
+
+export const deleteStudent = async (id) =>
+  apiInstanceAuth.delete(`/students/${id}`).then((res) => res.data);
