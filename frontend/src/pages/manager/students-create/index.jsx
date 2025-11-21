@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createStudentSchema } from "../../../utils/zodSchema";
 import { useRef, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { createStudent } from "../../../services/studentService";
 
 export default function ManageStudentCreatePage() {
   const {
@@ -14,10 +16,31 @@ export default function ManageStudentCreatePage() {
     resolver: zodResolver(createStudentSchema),
   });
 
+  const navigate = useNavigate();
+
+  const { isLoading, mutateAsync } = useMutation({
+    mutationFn: (data) => createStudent(data),
+  });
+
   const [file, setFile] = useState(null);
   const inputFileRef = useRef(null);
 
-  const onSubmit = (values) => {};
+  const onSubmit = async (values) => {
+    try {
+      const formData = new FormData();
+
+      formData.append("name", values.name);
+      formData.append("email", values.email);
+      formData.append("password", values.password);
+      formData.append("avatar", file);
+
+      await mutateAsync(formData);
+
+      navigate("/manager/students");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -178,6 +201,7 @@ export default function ManageStudentCreatePage() {
           </button>
           <button
             type="submit"
+            disabled={isLoading}
             className="w-full rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#662FFF] text-nowrap"
           >
             Add Now
