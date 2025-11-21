@@ -17,131 +17,140 @@ import { getCourseDetail, getCourses } from "../services/courseService";
 import { getCategories } from "../services/categoryService";
 import { getDetailContent } from "../services/contentService";
 import ManageStudentCreatePage from "../pages/manager/students-create";
-import { getStudent } from "../services/studentService";
+import { getDetailStudent, getStudent } from "../services/studentService";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ManagerHomepage />
+    element: <ManagerHomepage />,
   },
   {
     path: "/manager/sign-in",
-    element: <SignInPage />
+    element: <SignInPage />,
   },
   {
     path: "/manager/sign-up",
-    element: <SignUpPage />
+    element: <SignUpPage />,
   },
   {
     path: "/succes-checkout",
-    element: <SuccesCheckoutPage />
+    element: <SuccesCheckoutPage />,
   },
   {
     path: "/manager",
     id: MANAGER_SESSION,
     loader: async () => {
-      const session = secureLocalStorage.getItem(STORAGE_KEY)
-      
+      const session = secureLocalStorage.getItem(STORAGE_KEY);
+
       if (!session || session.role !== "manager") {
-        throw redirect('/manager/sign-in')
+        throw redirect("/manager/sign-in");
       }
 
-      return session
+      return session;
     },
     element: <LayoutDashboard />,
     children: [
       {
         index: true,
-        element: <ManagerHomepage />
+        element: <ManagerHomepage />,
       },
       {
-        path: '/manager/courses',
+        path: "/manager/courses",
         loader: async () => {
-          const data = await getCourses()
+          const data = await getCourses();
 
-          return data
+          return data;
         },
-        element: <ManageCoursePage />
+        element: <ManageCoursePage />,
       },
       {
-        path: '/manager/courses/create',
+        path: "/manager/courses/create",
         loader: async () => {
-          const categories = await getCategories()
+          const categories = await getCategories();
 
-          return {categories, course: null};
+          return { categories, course: null };
         },
-        element: <ManageCreateCoursePage />
+        element: <ManageCreateCoursePage />,
       },
       {
-        path: '/manager/courses/edit/:id',
-        loader: async ({params}) => {
-          const categories = await getCategories()
-          const course = await getCourseDetail(params.id)
+        path: "/manager/courses/edit/:id",
+        loader: async ({ params }) => {
+          const categories = await getCategories();
+          const course = await getCourseDetail(params.id);
 
-          return {categories, course: course?.data};
+          return { categories, course: course?.data };
         },
-        element: <ManageCreateCoursePage />
+        element: <ManageCreateCoursePage />,
       },
       {
-        path: '/manager/courses/:id',
-        loader: async ({params}) => {
-          const course = await getCourseDetail(params.id)
+        path: "/manager/courses/:id",
+        loader: async ({ params }) => {
+          const course = await getCourseDetail(params.id);
 
-          return course?.data
+          return course?.data;
         },
-        element: <ManageCourseDetailPage />
+        element: <ManageCourseDetailPage />,
       },
       {
-        path: '/manager/courses/:id/create',
-        element: <ManageContentCreatePage />
+        path: "/manager/courses/:id/create",
+        element: <ManageContentCreatePage />,
       },
       {
-        path: '/manager/courses/:id/edit/:contentId',
-        loader: async ({params}) => {
-          const content = await getDetailContent(params.contentId)
+        path: "/manager/courses/:id/edit/:contentId",
+        loader: async ({ params }) => {
+          const content = await getDetailContent(params.contentId);
 
-          return content?.data
+          return content?.data;
         },
-        element: <ManageContentCreatePage />
+        element: <ManageContentCreatePage />,
       },
       {
-        path: '/manager/courses/:id/preview',
-        loader: async ({params}) => {
-          const course = await getCourseDetail(params.id, true)
+        path: "/manager/courses/:id/preview",
+        loader: async ({ params }) => {
+          const course = await getCourseDetail(params.id, true);
 
-          return course?.data
+          return course?.data;
         },
-        element: <ManageCoursePreviewPage />
+        element: <ManageCoursePreviewPage />,
       },
       {
-        path: '/manager/students',
+        path: "/manager/students",
         loader: async () => {
-          const students = await getStudent()
+          const students = await getStudent();
 
-          return students?.data
+          return students?.data;
         },
-        element: <ManageStudentsPage />
+        element: <ManageStudentsPage />,
       },
       {
-        path: '/manager/students/create',
-        element: <ManageStudentCreatePage />
+        path: "/manager/students/create",
+        element: <ManageStudentCreatePage />,
       },
-    ]
+      {
+        path: "/manager/students/edit/:id",
+        loader: async ({ params }) => {
+          const student = await getDetailStudent(params.id);
+
+          return student?.data;
+        },
+        element: <ManageStudentCreatePage />,
+      },
+    ],
   },
   {
-    path: '/student',
-    element: <LayoutDashboard isAdmin={false}/>,
+    path: "/student",
+    element: <LayoutDashboard isAdmin={false} />,
     children: [
       {
         index: true,
-        element: <StudentPage />
+        element: <StudentPage />,
       },
       {
-        path: '/student/detail-course/:id',
-        element: <ManageCoursePreviewPage />
+        path: "/student/detail-course/:id",
+        element: <ManageCoursePreviewPage />,
       },
-    ]
+    ],
   },
-])
+]);
 
-export default router
+export default router;
