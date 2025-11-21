@@ -5,16 +5,19 @@ import { createStudentSchema } from "../../../utils/zodSchema";
 import { useRef, useState } from "react";
 
 export default function ManageStudentCreatePage() {
-  const {register, handleSubmit, formState: {errors}, setValue} = useForm({
-    resolver: zodResolver(createStudentSchema)
-  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm({
+    resolver: zodResolver(createStudentSchema),
+  });
 
-  const [file, setFile] = useState(null)
-  const inputFileRef = useRef(null)
+  const [file, setFile] = useState(null);
+  const inputFileRef = useRef(null);
 
-  const onSubmit = (values) => {
-    
-  }
+  const onSubmit = (values) => {};
 
   return (
     <>
@@ -62,7 +65,9 @@ export default function ManageStudentCreatePage() {
               <img
                 id="thumbnail-preview"
                 src={file !== null ? URL.createObjectURL(file) : ""}
-                className={`w-full h-full object-cover ${file !== null ? 'block' : 'hidden'}`}
+                className={`w-full h-full object-cover ${
+                  file !== null ? "block" : "hidden"
+                }`}
                 alt="thumbnail"
               />
             </div>
@@ -70,30 +75,32 @@ export default function ManageStudentCreatePage() {
               type="button"
               id="delete-preview"
               onClick={() => {
-                setFile(null)
-                setValue('photo', null)
+                setFile(null);
+                setValue("photo", null);
               }}
-              className={`w-12 h-12 rounded-full z-10 ${file !== null ? 'block' : 'hidden'}`}
+              className={`w-12 h-12 rounded-full z-10 ${
+                file !== null ? "block" : "hidden"
+              }`}
             >
               <img src="/assets/images/icons/delete.svg" alt="delete" />
             </button>
           </div>
           <input
-            {...register('photo')}
+            {...register("photo")}
             ref={inputFileRef}
             type="file"
             id="thumbnail"
             onChange={(e) => {
-                if (e.target.files) {
-                    setFile(e.target.files[0])
-                    setValue("photo", e.target.files[0])
-                }
+              if (e.target.files) {
+                setFile(e.target.files[0]);
+                setValue("photo", e.target.files[0]);
+              }
             }}
             accept="image/*"
             className="absolute bottom-0 left-1/4 -z-10"
           />
           <span className="error-message text-[#FF435A]">
-              {errors?.photo?.message}
+            {errors?.photo?.message}
           </span>
         </div>
         <div className="flex flex-col gap-[10px]">
@@ -107,7 +114,7 @@ export default function ManageStudentCreatePage() {
               alt="icon"
             />
             <input
-              {...register('name')}
+              {...register("name")}
               type="text"
               id="name"
               className="appearance-none outline-none w-full py-3 font-semibold placeholder:font-normal placeholder:text-[#838C9D] !bg-transparent"
@@ -115,7 +122,7 @@ export default function ManageStudentCreatePage() {
             />
           </div>
           <span className="error-message text-[#FF435A]">
-              {errors?.name?.message}
+            {errors?.name?.message}
           </span>
         </div>
         <div className="flex flex-col gap-[10px]">
@@ -129,7 +136,7 @@ export default function ManageStudentCreatePage() {
               alt="icon"
             />
             <input
-              {...register('email')}
+              {...register("email")}
               type="email"
               id="email"
               className="appearance-none outline-none w-full py-3 font-semibold placeholder:font-normal placeholder:text-[#838C9D] !bg-transparent"
@@ -137,7 +144,7 @@ export default function ManageStudentCreatePage() {
             />
           </div>
           <span className="error-message text-[#FF435A]">
-              {errors?.email?.message}
+            {errors?.email?.message}
           </span>
         </div>
         <div className="flex flex-col gap-[10px]">
@@ -151,7 +158,7 @@ export default function ManageStudentCreatePage() {
               alt="icon"
             />
             <input
-              {...register('password')}
+              {...register("password")}
               type="password"
               id="password"
               className="appearance-none outline-none w-full py-3 font-semibold placeholder:font-normal placeholder:text-[#838C9D] !bg-transparent"
@@ -159,7 +166,7 @@ export default function ManageStudentCreatePage() {
             />
           </div>
           <span className="error-message text-[#FF435A]">
-              {errors?.password?.message}
+            {errors?.password?.message}
           </span>
         </div>
         <div className="flex items-center gap-[14px]">
