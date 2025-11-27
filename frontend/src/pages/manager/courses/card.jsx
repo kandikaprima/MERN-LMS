@@ -58,6 +58,12 @@ export default function CardCourse({
         </div>
       </div>
       <div className="flex justify-end items-center gap-3">
+        <Link
+          to={`/manager/courses/students/${id}`}
+          className="w-fit rounded-full border border-[#060A23] p-[14px_20px] font-semibold text-nowrap"
+        >
+          Students
+        </Link>
         <button
           type="button"
           onClick={handleDelete}
