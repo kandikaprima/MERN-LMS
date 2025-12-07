@@ -1,28 +1,29 @@
 import React from "react";
-import { Link, useRevalidator } from "react-router-dom";
+import { useParams, useRevalidator } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useMutation } from "@tanstack/react-query";
-import { deleteStudent } from "../../../services/studentService";
+import { deleteStudentCourse } from "../../../services/studentService";
 
 export default function StudentItem({
   id = "1",
   imageUrl = "/assets/images/photos/photo-3.png",
-  name = "Angga Risky Setiawan",
+  name = "Kandika Prima Putra",
 }) {
-//   const revalidator = useRevalidator();
+  const revalidator = useRevalidator();
+  const params = useParams()
 
-//   const { isLoading, mutateAsync } = useMutation({
-//     mutationFn: () => deleteStudent(id),
-//   });
+  const { isLoading, mutateAsync } = useMutation({
+    mutationFn: () => deleteStudentCourse({studentId: id}, params.id),
+  });
 
-//   const handleDelete = async () => {
-//     try {
-//       await mutateAsync();
-//       revalidator.revalidate();
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+  const handleDelete = async () => {
+    try {
+      await mutateAsync();
+      revalidator.revalidate();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="card flex items-center gap-5">
@@ -43,8 +44,8 @@ export default function StudentItem({
       <div className="flex justify-end items-center gap-3">
         <button
           type="button"
-        //   disabled={isLoading}
-        //   onClick={handleDelete}
+          disabled={isLoading}
+          onClick={handleDelete}
           className="w-fit rounded-full p-[14px_20px] bg-[#FF435A] font-semibold text-white text-nowrap"
         >
           Delete
