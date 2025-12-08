@@ -10,6 +10,7 @@ import courseRoutes from './routes/course-routes.js';
 import categoryRoutes from './routes/category-routes.js';
 import contentRoutes from './routes/content-routes.js';
 import studentRoutes from './routes/student-routes.js';
+import overviewRoutes from './routes/overview-routes.js';
 
 const app = express()
 dotenv.config()
@@ -33,6 +34,7 @@ app.use('/api', courseRoutes)
 app.use('/api', categoryRoutes)
 app.use('/api', contentRoutes)
 app.use('/api', studentRoutes)
+app.use('/api', overviewRoutes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
