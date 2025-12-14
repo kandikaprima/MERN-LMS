@@ -183,3 +183,35 @@ export const deleteStudent = async (req, res) => {
     });
   }
 };
+
+export const getCoursesByStudentId = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.user._id).populate({
+      path: "courses",
+      select: "name category thumbnail",
+      populate: {
+        path: "category",
+        select: "name",
+      }
+    });
+
+    const imageUrl = process.env.APP_URL + "/uploads/courses/";
+
+    const response = user?.courses?.map((item) => {
+      return {
+        ...item.toObject(),
+        thumbnail_url: imageUrl + item.thumbnail,
+      };
+    });
+
+    return res.json({
+      message: "Get Courses by Student Id Success",
+      data: response,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+};
