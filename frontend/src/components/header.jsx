@@ -1,10 +1,10 @@
 import React from "react";
 import secureLocalStorage from "react-secure-storage";
-import { MANAGER_SESSION, STORAGE_KEY } from "../utils/const";
+import { MANAGER_SESSION, STORAGE_KEY, STUDENT_SESSION } from "../utils/const";
 import { useRouteLoaderData } from "react-router-dom";
 
-export default function Header() {
-  const session = useRouteLoaderData(MANAGER_SESSION)
+export default function Header({ type = "manager" }) {
+  const session = useRouteLoaderData(type === "manager" ? MANAGER_SESSION : STUDENT_SESSION);
 
   const handleLogout = () => {
     secureLocalStorage.removeItem(STORAGE_KEY);
