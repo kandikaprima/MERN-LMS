@@ -8,8 +8,9 @@ import { useMutation } from "@tanstack/react-query";
 import { postSignIn } from "../../services/authService.js";
 import secureLocalStorage from "react-secure-storage";
 import { STORAGE_KEY } from "../../utils/const.js";
+import PropTypes from "prop-types";
 
-export default function SignInPage() {
+export default function SignInPage({ type = "manager" }) {
   const {
     register,
     handleSubmit,
@@ -57,11 +58,13 @@ export default function SignInPage() {
               <span className="font-semibold text-white">My Dashboard</span>
             </div>
           </Link>
-          <Link to="/manager/sign-up">
-            <div className="flex items-center gap-3 w-fit rounded-full border p-[14px_20px] transition-all duration-300 hover:bg-[#662FFF] hover:border-[#8661EE] hover:shadow-[-10px_-6px_10px_0_#7F33FF_inset] bg-[#662FFF] border-[#8661EE] shadow-[-10px_-6px_10px_0_#7F33FF_inset]">
-              <span className="font-semibold text-white">Sign Up</span>
-            </div>
-          </Link>
+          {type === "manager" && (
+            <Link to="/manager/sign-up">
+              <div className="flex items-center gap-3 w-fit rounded-full border p-[14px_20px] transition-all duration-300 hover:bg-[#662FFF] hover:border-[#8661EE] hover:shadow-[-10px_-6px_10px_0_#7F33FF_inset] bg-[#662FFF] border-[#8661EE] shadow-[-10px_-6px_10px_0_#7F33FF_inset]">
+                <span className="font-semibold text-white">Sign Up</span>
+              </div>
+            </Link>
+          )}
         </div>
       </nav>
       <form
@@ -131,9 +134,13 @@ export default function SignInPage() {
           type="submit"
           className="w-full rounded-full border p-[14px_20px] text-center font-semibold text-white bg-[#662FFF] border-[#8661EE] shadow-[-10px_-6px_10px_0_#7F33FF_inset]"
         >
-          Sign In to Manage
+          Sign In to {type === "manager" ? "Manager" : "Student"} Account
         </button>
       </form>
     </div>
   );
+}
+
+SignInPage.propTypes = {
+  type: PropTypes.string
 }
