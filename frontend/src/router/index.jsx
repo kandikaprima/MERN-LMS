@@ -26,6 +26,7 @@ import {
 import StudentCourseList from "../pages/manager/student-course";
 import StudentForm from "../pages/manager/student-course/studentForm";
 import { getOverviews } from "../services/overviewService";
+import ForgotPasswordPage from "../pages/forgot-password";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       return true;
     },
     element: <SignInPage />,
+  },
+  {
+    path: "/manager/forgot-password",
+    element: <ForgotPasswordPage />,
   },
   {
     path: "/manager/sign-up",
