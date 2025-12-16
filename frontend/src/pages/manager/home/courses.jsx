@@ -16,7 +16,7 @@ export default function Courses() {
         <div key={item._id} className="card flex items-center gap-5">
           <div className="flex shrink-0 w-[100px] h-20 rounded-[20px] bg-[#D9D9D9] overflow-hidden">
             <img
-              src= {item.thumbnail_url}
+              src={item.thumbnail_url}
               className="w-full h-full object-cover"
               alt="thumbnail"
             />

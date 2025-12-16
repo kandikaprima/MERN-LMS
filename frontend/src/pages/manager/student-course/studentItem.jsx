@@ -10,10 +10,10 @@ export default function StudentItem({
   name = "Kandika Prima Putra",
 }) {
   const revalidator = useRevalidator();
-  const params = useParams()
+  const params = useParams();
 
   const { isLoading, mutateAsync } = useMutation({
-    mutationFn: () => deleteStudentCourse({studentId: id}, params.id),
+    mutationFn: () => deleteStudentCourse({ studentId: id }, params.id),
   });
 
   const handleDelete = async () => {

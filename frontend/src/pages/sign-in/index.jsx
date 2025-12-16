@@ -75,7 +75,7 @@ export default function SignInPage({ type = "manager" }) {
           <h1 className="font-bold text-[26px] leading-[39px] text-white">
             Welcome Back!
           </h1>
-          <p className="text-[#6B6C7F]">Manage your employees easily</p>
+          <p className="text-[#6B6C7F]">Manage your students easily</p>
         </div>
         <hr className="border-[#262A56]" />
         <div className="flex items-center gap-3 w-full rounded-full border p-[14px_20px] transition-all duration-300 focus-within:border-[#8661EE] focus-within:shadow-[-10px_-6px_10px_0_#7F33FF_inset] bg-[#070B24] border-[#24283E] shadow-[-10px_-6px_10px_0_#181A35_inset]">
@@ -142,5 +142,5 @@ export default function SignInPage({ type = "manager" }) {
 }
 
 SignInPage.propTypes = {
-  type: PropTypes.string
-}
+  type: PropTypes.string,
+};

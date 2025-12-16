@@ -216,7 +216,7 @@ const router = createBrowserRouter([
 
           return course?.data;
         },
-        element: <ManageCoursePreviewPage isAdmin={false}/>,
+        element: <ManageCoursePreviewPage isAdmin={false} />,
       },
     ],
   },

@@ -14,7 +14,13 @@ export default function StudentPage() {
         Latest Courses
       </h2>
       {courses?.map((item) => (
-        <CardCourse key={item._id} category={item.category.name} title={item.name} id={item._id} imageUrl={item.thumbnail_url} />
+        <CardCourse
+          key={item._id}
+          category={item.category.name}
+          title={item.name}
+          id={item._id}
+          imageUrl={item.thumbnail_url}
+        />
       ))}
     </section>
   );

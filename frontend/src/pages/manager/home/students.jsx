@@ -27,7 +27,9 @@ export default function Students() {
             </h3>
             <div className="flex items-center gap-[6px] mt-[6px]">
               <img src="/assets/images/icons/crown-purple.svg" alt="icon" />
-              <p className="text-[#838C9D]">{item.courses.length} Course Joined</p>
+              <p className="text-[#838C9D]">
+                {item.courses.length} Course Joined
+              </p>
             </div>
           </div>
         </div>

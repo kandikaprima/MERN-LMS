@@ -7,10 +7,10 @@ import { deleteStudent } from "../../../services/studentService";
 export default function StudentItem({
   id = "1",
   imageUrl = "/assets/images/photos/photo-3.png",
-  name = "Angga Risky Setiawan",
-  totalCourse = 183,
+  name = "Kandika Prima Putra",
+  totalCourse = 0,
 }) {
-  const revalidator = useRevalidator()
+  const revalidator = useRevalidator();
 
   const { isLoading, mutateAsync } = useMutation({
     mutationFn: () => deleteStudent(id),

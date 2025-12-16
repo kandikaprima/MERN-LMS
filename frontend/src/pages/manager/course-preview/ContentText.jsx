@@ -8,7 +8,11 @@ export default function ContentText({ content, handleNext }) {
         <h1 className="font-bold text-[32px] leading-[48px]">
           {content?.title}
         </h1>
-        <article id="Content-wrapper" className="prose" dangerouslySetInnerHTML={{ __html: content?.text }} />
+        <article
+          id="Content-wrapper"
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: content?.text }}
+        />
       </div>
       <div className="fixed bottom-0 w-[calc(100%-400px)] h-[151px] flex items-end justify-end pb-5 bg-[linear-gradient(0deg,#FFFFFF_49.67%,rgba(255,255,255,0)_84.11%)]">
         <button
@@ -25,5 +29,5 @@ export default function ContentText({ content, handleNext }) {
 
 ContentText.propTypes = {
   content: PropTypes.object,
-  handleNext: PropTypes.func
+  handleNext: PropTypes.func,
 };

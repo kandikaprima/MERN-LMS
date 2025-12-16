@@ -19,13 +19,13 @@ export default function StudentForm() {
 
   const navigate = useNavigate();
 
-  const {isLoading, mutateAsync} = useMutation({
+  const { isLoading, mutateAsync } = useMutation({
     mutationFn: (data) => addStudentCourse(data, id),
   });
 
   const onSubmit = async (values) => {
     try {
-      await mutateAsync(values)
+      await mutateAsync(values);
 
       navigate(`/manager/courses/students/${id}`);
     } catch (error) {

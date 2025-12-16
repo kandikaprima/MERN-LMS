@@ -42,7 +42,9 @@ export default function ManagerHomePage() {
               alt="icon"
             />
             <div>
-              <p className="font-extrabold text-2xl leading-[36px]">{overview?.totalStudent}</p>
+              <p className="font-extrabold text-2xl leading-[36px]">
+                {overview?.totalStudent}
+              </p>
               <p className="text-[#838C9D]">Total Students</p>
             </div>
           </div>
@@ -53,7 +55,9 @@ export default function ManagerHomePage() {
               alt="icon"
             />
             <div>
-              <p className="font-extrabold text-2xl leading-[36px]">{overview?.totalCourse}</p>
+              <p className="font-extrabold text-2xl leading-[36px]">
+                {overview?.totalCourse}
+              </p>
               <p className="text-[#838C9D]">Total Courses</p>
             </div>
           </div>
@@ -64,7 +68,9 @@ export default function ManagerHomePage() {
               alt="icon"
             />
             <div>
-              <p className="font-extrabold text-2xl leading-[36px]">{overview?.totalVideos}</p>
+              <p className="font-extrabold text-2xl leading-[36px]">
+                {overview?.totalVideos}
+              </p>
               <p className="text-[#838C9D]">Video Content</p>
             </div>
           </div>
@@ -75,7 +81,9 @@ export default function ManagerHomePage() {
               alt="icon"
             />
             <div>
-              <p className="font-extrabold text-2xl leading-[36px]">{overview?.totalTexts}</p>
+              <p className="font-extrabold text-2xl leading-[36px]">
+                {overview?.totalTexts}
+              </p>
               <p className="text-[#838C9D]">Text Content</p>
             </div>
           </div>

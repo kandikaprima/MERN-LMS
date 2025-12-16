@@ -4,7 +4,9 @@ import { MANAGER_SESSION, STORAGE_KEY, STUDENT_SESSION } from "../utils/const";
 import { useRouteLoaderData } from "react-router-dom";
 
 export default function Header({ type = "manager" }) {
-  const session = useRouteLoaderData(type === "manager" ? MANAGER_SESSION : STUDENT_SESSION);
+  const session = useRouteLoaderData(
+    type === "manager" ? MANAGER_SESSION : STUDENT_SESSION
+  );
 
   const handleLogout = () => {
     secureLocalStorage.removeItem(STORAGE_KEY);
@@ -32,7 +34,9 @@ export default function Header({ type = "manager" }) {
       <div className="relative flex items-center justify-end gap-[14px] group">
         <div className="text-right">
           <p className="font-semibold">{session?.name}</p>
-          <p className="text-sm leading-[21px] text-[#838C9D]">{session?.role}</p>
+          <p className="text-sm leading-[21px] text-[#838C9D]">
+            {session?.role}
+          </p>
         </div>
         <button
           type="button"

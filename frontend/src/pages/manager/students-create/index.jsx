@@ -66,7 +66,7 @@ export default function ManageStudentCreatePage() {
       <header className="flex items-center justify-between gap-[30px]">
         <div>
           <h1 className="font-extrabold text-[28px] leading-[42px]">
-            {student === undefined ? 'Add' : 'Edit'} Student
+            {student === undefined ? "Add" : "Edit"} Student
           </h1>
           <p className="text-[#838C9D] mt-[1]">Create new future for company</p>
         </div>
@@ -225,7 +225,7 @@ export default function ManageStudentCreatePage() {
             }
             className="w-full rounded-full p-[14px_20px] font-semibold text-[#FFFFFF] bg-[#662FFF] text-nowrap"
           >
-            {student === undefined ? 'Add' : 'Edit'} Now
+            {student === undefined ? "Add" : "Edit"} Now
           </button>
         </div>
       </form>
