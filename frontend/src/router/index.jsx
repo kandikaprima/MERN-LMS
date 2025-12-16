@@ -238,6 +238,10 @@ const router = createBrowserRouter([
     },
     element: <SignInPage type="student" />,
   },
+  {
+    path: "/student/forgot-password",
+    element: <ForgotPasswordPage type="student"/>,
+  },
 ]);
 
 export default router;
