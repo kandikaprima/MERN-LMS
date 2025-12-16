@@ -27,11 +27,12 @@ import StudentCourseList from "../pages/manager/student-course";
 import StudentForm from "../pages/manager/student-course/studentForm";
 import { getOverviews } from "../services/overviewService";
 import ForgotPasswordPage from "../pages/forgot-password";
+import RoleSelectionPage from "../pages/role-selection";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ManagerHomepage />,
+    element: <RoleSelectionPage />,
   },
   {
     path: "/manager/sign-in",
