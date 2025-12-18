@@ -1,7 +1,8 @@
 # MERN-LMS
-MERN-LMS adalah aplikasi Learning Management System (LMS) berbasis web yang dibangun menggunakan stack MERN (MongoDB, Express, React, dan Node.js).  
-Project ini dikembangkan sebagai personal project untuk mempelajari pengembangan aplikasi full stack, mulai dari pengelolaan frontend, backend API, hingga integrasi database.  
-MERN-LMS juga dirancang sebagai portofolio full stack pertama yang merepresentasikan penerapan arsitektur dan teknologi modern dalam pengembangan web.
+MERN-LMS is a web-based Learning Management System (LMS) application built using the MERN stack (MongoDB, Express, React, and Node.js).  
+This project was developed as a personal project to learn full stack web application development, covering frontend implementation, backend API development, and database integration.  
+MERN-LMS is also designed as a first full stack portfolio project that demonstrates the application of modern web technologies and architecture.
+
 
 ## 📸 Screenshots
 *soon*
@@ -15,14 +16,14 @@ MERN-LMS juga dirancang sebagai portofolio full stack pertama yang merepresentas
 - Protected frontend routes based on authentication state
 - Role-based route protection (Manager & Student)
 - Protected backend APIs using JWT middleware
-- Role-based authorization logic on backend
+- Role-based authorization logic on the backend
 - Client-side and server-side validation for authentication forms
 - User logout and session handling
 
 ### 👨‍🎓 Student Features
 - Secure student login access
-- View list of assign courses
-- Access detailed course information and materials
+- View assigned course list
+- Access detailed course information and learning materials
 - Read-only access to course content
 - Protected student routes based on authentication and role
 
@@ -45,7 +46,7 @@ MERN-LMS juga dirancang sebagai portofolio full stack pertama yang merepresentas
 - Persistent authentication state using secure local storage
 
 
-## 🛠 Teknologi yang Digunakan
+## 🛠 Tech Stack
 
 ### Frontend:
 - [React (Vite)](https://vite.dev/guide/#scaffolding-your-first-vite-project)
@@ -67,9 +68,9 @@ MERN-LMS juga dirancang sebagai portofolio full stack pertama yang merepresentas
 
 
 ## 📦 Installation
-Project ini merupakan website MERN full stack. Untuk menjalakan aplikasi secara lokal, Anda perlu menyiapkan frontend dan backend diterminal terpisah.
+This project is a full stack MERN application. To run it locally, you need to set up the frontend and backend in separate terminals.
 
-### Clone Repositori
+### Clone Repository
 
 ```bash
 git clone https://github.com/kandikaprima/MERN-LMS.git
@@ -82,22 +83,22 @@ cd frontend
 npm install
 npm run dev
 ```
-Frontend website akan berjalan pada: `http://localhost:5173/`
+The frontend application will run at: `http://localhost:5173/`
 
 ### Backend Setup
-Buka Terminal baru pada root folder kemudian jalankan:
+Open a new terminal at the project root and run:
 ```bash
 cd backend
 npm install
 npm run dev
 ```
-Backend server akan berjalan pada: `http://localhost:3000/`
+The backend server will run at: `http://localhost:3000/`
 
 
 ## ⚙️ Enviroment Variables
-Project ini menggunakan enviroment variable untuk konfigurasi backend dan frontend
+This project uses environment variables for both backend and frontend configuration.
 
-### Backend .ENV
+### Backend `.ENV`
 ```bash
 DATABASE_URL=your_mongodb_connection_string
 SECRET_KEY_JWT=your_jwt_secret_key
@@ -115,7 +116,7 @@ APP_URL=http://localhost:3000
 | MIDTRANS_AUTH_STRING | Midtrans server key (Base64 encoded) |
 | APP_URL | Frontend application URL |
 
-### Frontend .ENV
+### Frontend `.ENV`
 ```bash
 VITE_API_URL=http://localhost:3000/api
 VITE_SECURE_LOCAL_STORAGE_HASH_KEY=your_secure_storage_key
